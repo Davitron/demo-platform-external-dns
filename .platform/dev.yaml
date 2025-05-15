@@ -1,0 +1,6 @@
+route53:
+  regexDomainFilter: "^(?:[a-zA-Z0-9-]+\\.)*dev\\.thecloudsninja\\.com$"
+  txtOwnerId: "development"
+  serviceAccount:
+    annotations:
+      eks.amazonaws.com/role-arn: "arn:aws:iam::286747865976:role/external-dns-role-development"

@@ -1,0 +1,20 @@
+route53:
+  logLevel: info
+  regexDomainFilter: ""
+  annotationFilter: "external-dns in (route53)"
+  sources:
+    - ingress
+    - istio-gateway
+  provider: aws
+  policy: sync # TODO: Ask your team if upsert-only is a better option 
+  serviceAccount:
+    create: true
+    name: external-dns
+    annotations:
+      eks.amazonaws.com/role-arn: ""
+  txtOwnerId: ""
+  registry: txt
+  aws:
+    preferCNAME: false
+    region: eu-west-1
+    zoneType: public
